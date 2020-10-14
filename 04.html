@@ -1,0 +1,128 @@
+<!-- Creating custom components -->
+<!-- http://localhost:3000/isolated/exercise/04.html -->
+
+<body>
+  <div id="root"></div>
+  <script src="https://unpkg.com/react@16.13.1/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16.13.1/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.9.3/babel.js"></script>
+  <script src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
+  <script type="text/babel">
+    // Exercise
+    // function message ({children}){
+    //   return <div className="message">{children}</div>   
+    // }
+
+    // const element = (
+    //   <div className="container">
+    //     {message({children: 'Hello World'})}
+    //     {message({children: 'Goodbye World'})}
+    //   </div>
+    // )
+
+    // Extra 1:
+    // function message ({children}){
+    //   return <div className="message">{children}</div>   
+    // }
+
+    // const element = (
+    //   <div className="container">
+    //     {React.createElement(message, {children: 'Hello World'})}
+    //     {React.createElement(message, {children: 'Goodbye World'})}
+    //  </div>
+    // )
+    
+    // Extra 2:
+    // function Message ({children}){
+    //   return <div className="message">{children}</div>   
+    // }
+
+    // const element = (
+    //   <div className="container">
+    //     <Message>Hello World</Message>
+    //     <Message>Goodbye World</Message>
+    //  </div>
+    // )
+
+    // Capital letter is a reference to a variable that is in scope
+
+    // Extra 3:
+
+    // const PropTypes = {
+    //   string(props, propName, componentName) {
+    //     if (typeof props[propName] !== 'string') {
+    //       return new Error(`${propName} must be a string`)
+    //     }
+    //   },
+    // }
+
+    // function Message({subject, greeting}) {
+    //   return (
+    //     <div className="message">
+    //       {greeting}, {subject}
+    //     </div>
+    //   )
+    // }
+
+    // Message.propTypes = {
+    //   subject: PropTypes.string,
+    //   greeting: PropTypes.string,
+    // }
+    
+    // const element = (
+    //   <div className="container">
+    //     <Message greeting="Hello" subject={2} />
+    //     <Message greeting="Goodbye" subject="World" />
+    //  </div>
+    // )
+
+    // Extra 4:
+
+    function Message({subject, greeting}) {
+      return (
+        <div className="message">
+          {greeting}, {subject}
+        </div>
+      )
+    }
+
+    Message.propTypes = {
+      subject: PropTypes.string.isRequired,
+      greeting: PropTypes.string.isRequired,
+    }
+    
+    const element = (
+      <div className="container">
+        <Message greeting="Hello" subject={2} />
+        <Message greeting="Goodbye" subject="World" />
+     </div>
+    )
+
+    // Prop-types not necessary if using statically typed language eg TypeScript
+
+    // Extra 5:
+
+    // function Message({subject, greeting}) {
+    //   return (
+    //     <div className="message">
+    //       {greeting}, {subject}
+    //     </div>
+    //   )
+    // }
+
+    // Message.propTypes = {
+    //   subject: PropTypes.string.isRequired,
+    //   greeting: PropTypes.string.isRequired,
+    // }
+    
+    // const element = (
+    //   <React.Fragment> or <>
+    //     <Message greeting="Hello" subject="World" />
+    //     <Message greeting="Goodbye" subject="World" />
+    //  </React.Fragment> or </>
+    // )
+
+
+    ReactDOM.render(element, document.getElementById('root'))
+  </script>
+</body>
