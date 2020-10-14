@@ -1,0 +1,33 @@
+<body>
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@16.13.1/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16.13.1/umd/react-dom.development.js"></script>
+
+  <script type="module">
+
+    // Raw React
+    // const element = React.createElement('div', {
+    //   className: 'container', 
+    //   children: 'Hello world!'
+    // });
+
+    // Nesting Extra Credit
+    const hello = React.createElement('span', {children: 'Hello'});
+    const world = React.createElement('span', {children: 'World'});
+    const element = React.createElement(
+      'div', 
+      {
+        className: 'container', 
+        children: [hello, ' ', world]
+      }, 
+      // hello, also can pass this way
+      // ' ', 
+      // world
+    );
+
+
+    ReactDOM.render(element, document.getElementById('root'));
+
+  </script>
+</body>
